@@ -21,11 +21,11 @@ const Kanban = props => (
   </div>
 );
 
-// Kanban.need = [
-//   () => {
-//     return fetchLanes();
-//   }
-// ];
+Kanban.need = [
+  () => {
+    return fetchLanes();
+  }
+];
 
 // prettier-ignore
 Kanban.propTypes = {
@@ -34,7 +34,7 @@ Kanban.propTypes = {
 };
 // prettier-ignore
 const mapStateToProps = state => ({ 
-  lanes: state.lanes,
+  lanes: Object.values(state.lanes),
 });
 
 // prettier-ignore
@@ -42,4 +42,7 @@ const mapDispatchToProps = {
   createLane,
 }
 
-export default connect(mapStateToProps)(Kanban);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Kanban);
