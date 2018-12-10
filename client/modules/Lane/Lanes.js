@@ -1,10 +1,11 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import Lane from "./LaneContainer";
 
-const Lanes = ({ lames }) => {
+const Lanes = ({ lanes }) => {
   return (
     <div className="lanes">
-      {Lanes.map(lane => (
+      {lanes.map(lane => (
         <Lane className="lane" key={lane.id} lane={lane} />
       ))}
     </div>
@@ -13,7 +14,7 @@ const Lanes = ({ lames }) => {
 
 // prettier-ignore
 Lanes.propTypes = {
-  // lanes: PropTypes.array,
+  lanes: PropTypes.array,
 };
 
 export default Lanes;

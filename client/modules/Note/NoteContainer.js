@@ -1,16 +1,13 @@
 import { connect } from "react-redux";
 import Notes from "./Notes";
-import { editLane, deleteLane, updateLane } from "./LaneActions";
 import * as noteActions from "../Note/NoteActions";
 
 // prettier-ignore
 const mapDispatchToProps = {
-  editLane,
-  deleteLane,
-  updateLane,
-  addNote: noteActions.createNoteRequest,
+  onValueClick: noteActions.editNote,
   updateNote: noteActions.editNoteRequest,
   deleteNote: noteActions.deleteNoteRequest,
+  moveWithinLane: noteActions.moveWithinLane,
 };
 
 export default connect(
