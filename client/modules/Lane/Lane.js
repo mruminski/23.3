@@ -1,13 +1,23 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import NotesContainer from "../Note/NoteContainer";
 import styles from "./Lane.css";
 import Edit from "../../components/edit";
 
+// prettier-ignore
 const Lane = props => {
-  const { lane, laneNotes, addNote, editLane, updateLane, deleteLane } = props;
+  const {
+    connectDropTarget,
+    lane,
+    laneNotes,
+    addNote,
+    editLane,
+    updateLane,
+    deleteLane,
+  } = props;
   const laneId = lane.id;
 
-  return (
+  return connectDropTarget(
     <div className={styles.Lane}>
       <div className={styles.LaneHeader}>
         <div className={styles.LaneAddNote}>
@@ -33,12 +43,12 @@ const Lane = props => {
 
 // prettier-ignore
 Lane.propTypes = {
-  // lane: PropTypes.object,
-  // laneNotes: PropTypes.array,
-  // addNote: PropTypes.func,
-  // editLane: PropTypes.func,
-  // updateLane: PropTypes.func,
-  // deleteLane: PropTypes.func,
+  lane: PropTypes.object,
+  laneNotes: PropTypes.array,
+  addNote: PropTypes.func,
+  editLane: PropTypes.func,
+  updateLane: PropTypes.func,
+  deleteLane: PropTypes.func,
 };
 
 export default Lane;

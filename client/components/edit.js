@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 import styles from "./edit.css";
 
 export default class Edit extends Component {
@@ -9,7 +10,7 @@ export default class Edit extends Component {
   };
 
   finishEdit = e => {
-    const value = e.targer.value;
+    const value = e.target.value;
 
     if (this.props.onUpdate) {
       this.props.onUpdate(value.trim());
@@ -60,9 +61,9 @@ export default class Edit extends Component {
 
 // prettier-ignore
 Edit.propTypes = {
-  // value: PropTypes.string,
-  // onUpdate: PropTypes.func,
-  // onValueClick: PropTypes.func,
-  // onDelete: PropTypes.func,
-  // editing: PropTypes.bool,
+  value: PropTypes.string,
+  onUpdate: PropTypes.func,
+  onValueClick: PropTypes.func,
+  onDelete: PropTypes.func,
+  editing: PropTypes.bool,
 };
